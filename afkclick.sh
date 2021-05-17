@@ -5,7 +5,6 @@
 
 ## Global variables
 togst=0 # 0 for off, 1 for lmb, 2 for rmb.
-clickCount=0
 
 ## Core Loop
 while true; do
@@ -38,10 +37,5 @@ while true; do
     if [[ $togst == 2 ]]; then
         xdotool click --repeat 1 --delay 400 --window $wndw 3 #Right clicks on $wndw with a delay of 400ms
         echo "Right clicked!"
-        if [[ $clickCount == 1024 ]]; then #Jumps every 1024 inputs, fixes an issue when autofishing where bobber gets stuck
-            xdotool key --delay 1 space
-            clickCount=0
-        fi
-        clickCount=$((clickCount + 1))
     fi
 done
